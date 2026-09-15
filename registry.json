@@ -1,0 +1,15 @@
+{
+  "schema_version": 1,
+  "plugins": [
+    {
+      "id": "cpa-devin-prompt-compat",
+      "name": "Devin Prompt Compat",
+      "description": "对 devin/* 模型请求做字面替换，把 Claude Code 子代理系统提示词中被 Devin 内容策略拦截的句子改成同义句。",
+      "author": "szxypi",
+      "repository": "https://github.com/szxypi/cpa-devin-prompt-compat",
+      "homepage": "https://github.com/szxypi/cpa-devin-prompt-compat",
+      "license": "MIT",
+      "tags": ["Devin", "Prompt", "Compat"]
+    }
+  ]
+}

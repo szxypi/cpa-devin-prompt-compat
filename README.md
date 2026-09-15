@@ -6,7 +6,13 @@
 
 ## 安装
 
-**方式 A：CPA 插件商店（推荐）。** 管理控制台打开「插件商店」→ 从 GitHub 仓库安装，填 `szxypi/cpa-devin-prompt-compat`。每个 Release 都带商店可识别的资产：`cpa-devin-prompt-compat_<ver>_linux_amd64.zip`、`cpa-devin-prompt-compat_<ver>_linux_arm64.zip` 与 `checksums.txt`（zip 根目录是 `cpa-devin-prompt-compat.so`，正是 CPA `internal/pluginstore` 要求的布局）。安装后在 `config.yaml` 的 `plugins.configs` 下加 `cpa-devin-prompt-compat: { enabled: true }` 即可。
+**方式 A：CPA 插件商店（推荐）。** CPA 插件商店只从「来源 registry」安装，本仓库自带一份 `registry.json`。在管理控制台「插件商店 → 第三方插件来源」（对应 `config.yaml` 的 `plugins.store-sources`）加入：
+
+```
+https://raw.githubusercontent.com/szxypi/cpa-devin-prompt-compat/main/registry.json
+```
+
+然后在商店列表里找到「Devin Prompt Compat」点安装即可，商店会从本仓库 Release 下载 `cpa-devin-prompt-compat_<ver>_linux_<arch>.zip` 并按 `checksums.txt` 校验（zip 根目录是 `cpa-devin-prompt-compat.so`，正是 CPA `internal/pluginstore` 要求的布局），安装后自动在 `plugins.configs` 写入 `cpa-devin-prompt-compat: { enabled: true }`。
 
 **方式 B：手动。** 从 [Releases](https://github.com/szxypi/cpa-devin-prompt-compat/releases) 下载 `cpa-devin-prompt-compat-v<ver>-linux-<arch>.so`，改名为 `cpa-devin-prompt-compat-v<ver>.so` 放到 `<plugins.dir>/linux/<arch>/`（CPA 按文件名取插件 id 和版本），加上上面的配置并重启 CPA。
 
