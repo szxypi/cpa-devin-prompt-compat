@@ -4,6 +4,14 @@
 
 这是独立的 CPA C ABI 插件（before-auth 请求拦截器），只做字面文本替换，不修改协议格式、不调用网络、不缓存请求内容。使用 CPA SDK v7.2.155 / C ABI v1；元数据中的 `GitHubRepository` 指向宿主 SDK 仓库，不代表该本地插件已发布到上游。
 
+## 安装
+
+**方式 A：CPA 插件商店（推荐）。** 管理控制台打开「插件商店」→ 从 GitHub 仓库安装，填 `szxypi/cpa-devin-prompt-compat`。每个 Release 都带商店可识别的资产：`cpa-devin-prompt-compat_<ver>_linux_amd64.zip`、`cpa-devin-prompt-compat_<ver>_linux_arm64.zip` 与 `checksums.txt`（zip 根目录是 `cpa-devin-prompt-compat.so`，正是 CPA `internal/pluginstore` 要求的布局）。安装后在 `config.yaml` 的 `plugins.configs` 下加 `cpa-devin-prompt-compat: { enabled: true }` 即可。
+
+**方式 B：手动。** 从 [Releases](https://github.com/szxypi/cpa-devin-prompt-compat/releases) 下载 `cpa-devin-prompt-compat-v<ver>-linux-<arch>.so`，改名为 `cpa-devin-prompt-compat-v<ver>.so` 放到 `<plugins.dir>/linux/<arch>/`（CPA 按文件名取插件 id 和版本），加上上面的配置并重启 CPA。
+
+> 提示：本插件已被合并进更通用的 `cpa-prompt-compat`（一套通用替换对所有模型生效）；本仓库保留给只需要 devin 场景的用户。
+
 ## 生效范围
 
 同时满足以下条件才改写：
